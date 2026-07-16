@@ -6,23 +6,32 @@ A end-to-end data warehouse project built with **PostgreSQL** using **Medallion 
 
 ## Project Overview
 
+This project builds a centralized Data Warehouse for FMCG sales data 
+using Medallion Architecture (Bronze, Silver, Gold) in PostgreSQL. 
+It covers the full pipeline from raw data ingestion, data cleaning and 
+transformation, to a Star Schema ready to be consumed by Data Analysts, 
+Data Scientists, or any BI tools.
+
+The entire pipeline runs automatically with a single stored procedure call, 
+while a trigger ensures every change to the fact table is fully audited.
+
+---
+
+## Business Problem
+
 In FMCG distribution, sales data often arrives in raw and inconsistent 
-formats from multiple salesman across different regions — making it 
+formats from multiple salesman across different regions, making it 
 difficult for management to get a clear picture of business performance.
 
-This project builds a centralized **Data Warehouse** using Medallion 
-Architecture to solve that challenge:
+This data warehouse is built to enable strategic analysis such as:
 
-- **Bronze layer** ingests 100,000 raw transactions and preserves them as-is
-- **Silver layer** cleans and resolves 6 types of data quality issues 
-  including inconsistent date formats, Rp-formatted amounts, NULL values, 
-  category typos, negative values, and duplicates
-- **Gold layer** organizes clean data into a Star Schema, enabling fast 
-  and reliable analysis of revenue trends, product performance, and 
-  regional sales across 10 cities in Indonesia
-
-The entire pipeline runs automatically with a **single stored procedure call**, 
-while a trigger ensures every change to the fact table is fully audited.
+- Sales Monitoring: track revenue fluctuations by day, month, or season accurately
+- Product Performance: identify best-selling products and categories 
+  contributing the highest profit
+- Regional Analysis: map revenue performance by location to evaluate 
+  highest and lowest performing areas
+- ML-Ready Foundation: provide clean, structured data ready for demand 
+  forecasting and customer segmentation models
 
 ---
 
